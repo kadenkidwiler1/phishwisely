@@ -2,7 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="t_white">#B3FFFFFF</color>
-    <color name="navy_dark">#0B1F3A</color>
-    <color name="accent_blue">#3DA5D9</color>
+    <color name = "grey">#7A8BA3</color>
+    <color name = "t_white">#B3FFFFFF</color>
+    <color name = "navy_dark">#0B1F3A</color>
+    <color name = "accent_blue">#3DA5D9</color>
 </resources>
