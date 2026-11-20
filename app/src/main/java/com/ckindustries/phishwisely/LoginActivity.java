@@ -33,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+
+
             EditText emailField = findViewById(R.id.emailInput);
             EditText passwordField = findViewById(R.id.passwordInput);
             Button loginButton = findViewById(R.id.loginButton);
@@ -54,6 +56,10 @@ public class LoginActivity extends AppCompatActivity {
                     passwordField.setError("Password is required");
                     return;
                 }
+
+                Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+                startActivity(intent);
+                finish();
             });
         }
     }
