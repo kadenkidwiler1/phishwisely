@@ -5,156 +5,151 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background = "@color/navy_dark"
+    android:background="@color/navy_dark"
     tools:context=".RegisterActivity">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport = "true">
+        android:fillViewport="true">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:padding="24dp">
-
-        <TextView
-            android:id="@+id/registerText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sign Up"
-            android:layout_marginBottom="40dp"
-            android:textSize="40sp"
-            android:textStyle="bold"
-            android:textColor = "@color/white"/>
-
-        <TextView
-            android:id="@+id/regSubtitleText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Create your PhishWisely account"
-            android:layout_marginTop = "-30dp"
-            android:layout_marginBottom = "40dp"
-            android:textSize="16sp"
-            android:textColor = "@color/grey"/>
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text = "LOGIN DETAILS"
-            android:layout_marginBottom = "-10dp"
-            android:textSize = "12sp"
-            android:textStyle = "bold"
-            android:textColor = "@color/accent_blue"
-            android:letterSpacing = ".1" />
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:id="@+id/registerText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
+                android:text="Sign Up"
+                android:textColor="@color/white"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/regSubtitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-30dp"
+                android:layout_marginBottom="40dp"
+                android:text="Create your PhishWisely account"
+                android:textColor="@color/grey"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-10dp"
+                android:letterSpacing=".1"
+                android:text="LOGIN DETAILS"
+                android:textColor="@color/accent_blue"
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
 
+            <EditText
+                android:id="@+id/regEmailInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@color/white"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/white"
+                android:textColorHint="@color/t_white" />
 
-        <EditText
-            android:id="@+id/regEmailInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:textColor = "@color/white"
-            android:textColorHint="@color/t_white"
-            android:backgroundTint = "@color/white"/>
-
-        <EditText
-            android:id="@+id/regPasswordInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint = "Password"
-            android:inputType="textPassword"
-            android:textColor = "@color/white"
-            android:textColorHint="@color/t_white"
-            android:backgroundTint = "@color/white"/>
-
+            <EditText
+                android:id="@+id/regPasswordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@color/white"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:textColor="@color/white"
+                android:textColorHint="@color/t_white" />
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text = "Password must include 8 characters and at least one number"
-            android:textSize = "12sp"
-            android:textColor = "@color/grey" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Password must include 8 characters and at least one number"
+                android:textColor="@color/grey"
+                android:textSize="12sp" />
 
-        <EditText
-            android:id="@+id/regConfirmPasswordInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Confirm Password"
-            android:inputType="textPassword"
-            android:textColor = "@color/white"
-            android:textColorHint="@color/t_white"
-            android:backgroundTint = "@color/white"/>
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text = "PROFILE DETAILS"
-            android:layout_marginTop = "25dp"
-            android:layout_marginBottom = "-10dp"
-            android:textSize = "12sp"
-            android:textStyle = "bold"
-            android:textColor = "@color/accent_blue"
-            android:letterSpacing = ".1" />
-
-        <EditText
-            android:id="@+id/regDisplayNameInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Display Name"
-            android:inputType="text|textNoSuggestions"
-            android:textColor = "@color/white"
-            android:textColorHint="@color/t_white"
-            android:backgroundTint = "@color/white"/>
-
-        <EditText
-            android:id="@+id/regOrganizationInput"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:hint="Organization Code"
-            android:inputType="text|textNoSuggestions"
-            android:textColor = "@color/white"
-            android:textColorHint="@color/t_white"
-            android:backgroundTint = "@color/white"/>
-
-        <Button
-            android:id="@+id/registerButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="Register Here"
-            android:textSize = "22sp"
-            android:textColor = "@color/navy_dark"
-            android:textStyle = "bold"
-            android:backgroundTint = "@color/accent_blue"/>
-
-        <TextView
-            android:id="@+id/loginLink"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text = "Already have an account? Log in here"
-            android:textColor = "@color/white"
-            android:textStyle = "bold"
-            android:layout_marginVertical = "12dp"
-            android:padding = "12dp" />
+            <EditText
+                android:id="@+id/regConfirmPasswordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@color/white"
+                android:hint="Confirm Password"
+                android:inputType="textPassword"
+                android:textColor="@color/white"
+                android:textColorHint="@color/t_white" />
 
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="-10dp"
+                android:letterSpacing=".1"
+                android:text="PROFILE DETAILS"
+                android:textColor="@color/accent_blue"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/regDisplayNameInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@color/white"
+                android:hint="Display Name"
+                android:inputType="text|textNoSuggestions"
+                android:textColor="@color/white"
+                android:textColorHint="@color/t_white" />
+
+            <EditText
+                android:id="@+id/regOrganizationInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@color/white"
+                android:hint="Organization Code"
+                android:inputType="text|textNoSuggestions"
+                android:textColor="@color/white"
+                android:textColorHint="@color/t_white" />
+
+            <Button
+                android:id="@+id/registerButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/accent_blue"
+                android:text="Register Here"
+                android:textColor="@color/navy_dark"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/loginLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="12dp"
+                android:layout_marginTop="16dp"
+                android:padding="12dp"
+                android:text="Already have an account? Log in here"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
 
-
-
-    </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -5,24 +5,23 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background = "@color/navy_dark"
+    android:background="@color/navy_dark"
     android:orientation="vertical"
     tools:context=".ChallengeActivity">
 
     <LinearLayout
-        android:layout_width = "match_parent"
-        android:layout_height = "wrap_content"
-        android:orientation="vertical"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
 
     <TextView
-        android:id = "@+id/challengeTitle"
-        android:layout_width = "match_parent"
-        android:layout_height = "wrap_content"
-        android:text = "Challenge Screen"
-        android:textSize = "40sp"
+        android:id="@+id/challengeTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Challenge Screen"
+        android:textSize="40sp"
         android:textColor="@color/white"
-        android:textStyle = "bold" />
+        android:textStyle="bold" />
 
 
 </LinearLayout>

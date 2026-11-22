@@ -31,7 +31,7 @@ public class DashboardActivity extends AppCompatActivity {
 
         Button startButton = findViewById(R.id.startButton);
         startButton.setOnClickListener(v -> {
-            Intent intent = new Intent(DashboardActivity.this, ProfileActivity.class);
+            Intent intent = new Intent(DashboardActivity.this, ChallengeActivity.class);
             startActivity(intent);
         });
     }

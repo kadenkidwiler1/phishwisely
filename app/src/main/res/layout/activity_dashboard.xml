@@ -95,21 +95,21 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="45dp"
+                            android:layout_marginTop="-2dp"
                             android:layout_weight="1"
                             android:text="0"
                             android:textColor="@color/white"
                             android:textSize="22sp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="45dp"
-                            android:layout_marginTop="-2dp" />
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
                             android:text="Points"
                             android:textColor="@color/grey"
-                            android:textSize="15sp"
-                            android:layout_marginRight="5dp" />
+                            android:textSize="15sp" />
 
 
                     </LinearLayout>
@@ -117,19 +117,19 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/accuracyValue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="-2dp"
                             android:text="0"
                             android:textColor="@color/white"
                             android:textSize="22sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="-2dp" />
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -144,19 +144,19 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/completedValue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="-2dp"
                             android:text="0/1"
                             android:textColor="@color/white"
                             android:textSize="22sp"
-                            android:textStyle="bold"
-                            android:layout_marginTop="-2dp" />
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -173,77 +173,70 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop = "20dp"
-                android:text = "CHALLENGES"
-                android:textSize = "13sp"
-                android:textStyle = "bold"
-                android:textColor = "@color/accent_blue"
-                android:letterSpacing = ".15" />
+                android:layout_marginTop="20dp"
+                android:letterSpacing=".15"
+                android:text="CHALLENGES"
+                android:textColor="@color/accent_blue"
+                android:textSize="13sp"
+                android:textStyle="bold" />
 
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:cardBackgroundColor="@color/card_navy"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="0dp"
-            app:contentPadding="10dp"
-            app:strokeWidth="0dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity = "center_vertical"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_marginTop="20dp"
+                app:cardBackgroundColor="@color/card_navy"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp"
+                app:contentPadding="10dp"
+                app:strokeWidth="0dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Email Phishing"
-                    android:layout_marginLeft = "7dp"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="20sp" />
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0 of 1 completed"
-                    android:layout_marginLeft = "10dp"
-                    android:textColor="@color/grey"
-                    android:textSize="15sp" />
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="7dp"
+                            android:text="Email Phishing"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="0 of 1 completed"
+                            android:textColor="@color/grey"
+                            android:textSize="15sp" />
 
 
+                    </LinearLayout>
 
+                    <Button
+                        android:id="@+id/startButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/accent_blue"
+                        android:gravity="center_vertical"
+                        android:text="Start"
+                        android:textColor="@color/navy_dark"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-
-
-
-
-
-
-        </LinearLayout>
-            <Button
-                android:id="@+id/startButton"
-                android:layout_width="wrap_content"
-                android:layout_height= "wrap_content"
-                android:text="Start"
-                android:gravity= "center_vertical"
-                android:textSize = "18sp"
-                android:textColor = "@color/navy_dark"
-                android:textStyle = "bold"
-                android:backgroundTint = "@color/accent_blue"/>
-
-        </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
 
 
