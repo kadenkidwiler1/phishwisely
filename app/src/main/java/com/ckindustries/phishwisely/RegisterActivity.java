@@ -6,6 +6,7 @@ import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -13,71 +14,97 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class RegisterActivity extends AppCompatActivity {
+import com.ckindustries.phishwisely.data.AccountRepository;
+import com.ckindustries.phishwisely.security.Passwords;
+import com.ckindustries.phishwisely.session.UserSession;
+import com.ckindustries.phishwisely.util.DatabaseExecutor;
 
+public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         WindowCompat.enableEdgeToEdge(getWindow());
         setContentView(R.layout.activity_register);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            Insets ime = insets.getInsets(WindowInsetsCompat.Type.ime()); // ime = on screen keyboard, edge-to-edge prevents screen from shrinking when keyboard is on the screen. this line allows all input fields to be seen when keyboard is open
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, Math.max(systemBars.bottom, ime.bottom)); //bottom padding grows to the height of the keyboard
+            Insets bars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            Insets keyboard = insets.getInsets(WindowInsetsCompat.Type.ime());
+            v.setPadding(bars.left, bars.top, bars.right, Math.max(bars.bottom, keyboard.bottom));
             return insets;
         });
         TextView loginLink = findViewById(R.id.loginLink);
         loginLink.setOnClickListener(v -> finish());
-
-        Button registerButton = findViewById(R.id.registerButton);
-        EditText emailField = findViewById(R.id.regEmailInput);
-        EditText passwordField = findViewById(R.id.regPasswordInput);
-        EditText confPasswordField = findViewById(R.id.regConfirmPasswordInput);
-        EditText displayNameField = findViewById(R.id.regDisplayNameInput);
-        EditText orgInputField = findViewById(R.id.regOrganizationInput);
-
-        registerButton.setOnClickListener(v -> {
-            String regUserEmail = emailField.getText().toString().trim();
-            String regUserPassword = passwordField.getText().toString();
-            String regConfUserPassword = confPasswordField.getText().toString();
-            String regUserDisplayName = displayNameField.getText().toString().trim();
-            String regOrganizationCode = orgInputField.getText().toString().trim();
-
-            if (regUserEmail.isEmpty()) {
-                emailField.setError("Email is required");
-                return;
-            } else if (!Patterns.EMAIL_ADDRESS.matcher(regUserEmail).matches()) {
-                emailField.setError("Please provide an email");
+        EditText email = findViewById(R.id.regEmailInput);
+        EditText password = findViewById(R.id.regPasswordInput);
+        EditText confirm = findViewById(R.id.regConfirmPasswordInput);
+        EditText display = findViewById(R.id.regDisplayNameInput);
+        EditText first = findViewById(R.id.regFirstNameInput);
+        EditText last = findViewById(R.id.regLastNameInput);
+        EditText org = findViewById(R.id.regOrganizationInput);
+        Button register = findViewById(R.id.registerButton);
+        register.setOnClickListener(v -> {
+            String address = email.getText().toString().trim();
+            String secret = password.getText().toString();
+            String displayName = display.getText().toString().trim();
+            String firstName = first.getText().toString().trim();
+            String lastName = last.getText().toString().trim();
+            String code = org.getText().toString().trim();
+            if (!Patterns.EMAIL_ADDRESS.matcher(address).matches()) {
+                email.setError("Enter a valid email");
                 return;
             }
-
-            if (regUserPassword.isEmpty()) {
-                passwordField.setError("Password is required");
-                return;
-            } else if (regUserPassword.length() < 8) {
-                passwordField.setError("Password must be more than 8 characters");
-                return;
-            } else if (!regUserPassword.matches(".*\\d.*")) {
-                passwordField.setError("Password must contain a number (0-9)");
+            String policy = Passwords.validate(secret);
+            if (policy != null) {
+                password.setError(policy);
                 return;
             }
-
-            if(regConfUserPassword.isEmpty()) {
-                confPasswordField.setError("You must confirm your password");
-                return;
-            } else if (!regUserPassword.equals(regConfUserPassword)){
-                confPasswordField.setError("Passwords do not match");
+            if (!secret.equals(confirm.getText().toString())) {
+                confirm.setError("Passwords do not match");
                 return;
             }
-            if(regUserDisplayName.isEmpty()) {
-                displayNameField.setError("Display name is required");
+            if (firstName.isEmpty()) {
+                first.setError("First name required");
                 return;
             }
-            if(regOrganizationCode.isEmpty()) {
-                orgInputField.setError("Organization code is required");
+            if (lastName.isEmpty()) {
+                last.setError("Last name required");
                 return;
             }
-
+            if (displayName.isEmpty()) {
+                display.setError("Display name required");
+                return;
+            }
+            if (code.isEmpty()) {
+                org.setError("Organization code required");
+                return;
+            }
+            register.setEnabled(false);
+            DatabaseExecutor.IO.execute(() -> {
+                try {
+                    AccountRepository.Registration result = new AccountRepository(this)
+                            .register(address, secret, displayName, firstName, lastName, code);
+                    runOnUiThread(() -> {
+                        if (isFinishing() || isDestroyed()) return;
+                        register.setEnabled(true);
+                        if (result.error != null) {
+                            if (result.error.toLowerCase().contains("email"))
+                                email.setError(result.error);
+                            else org.setError(result.error);
+                        } else {
+                            new UserSession(this).signIn(result.user.id);
+                            Toast.makeText(this, "Account created", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(this, DashboardActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intent);
+                            finish();
+                        }
+                    });
+                } catch (Exception ex) {
+                    runOnUiThread(() -> {
+                        register.setEnabled(true);
+                        Toast.makeText(this, "Registration failed", Toast.LENGTH_LONG).show();
+                    });
+                }
+            });
         });
     }
 }

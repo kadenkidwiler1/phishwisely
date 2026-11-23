@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -78,7 +78,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Password must include 8 characters and at least one number"
+                android:text="Use 8+ characters with uppercase, lowercase, number, and symbol"
                 android:textColor="@color/grey"
                 android:textSize="12sp" />
 
@@ -104,6 +104,28 @@
                 android:textColor="@color/accent_blue"
                 android:textSize="12sp"
                 android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/regFirstNameInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@color/white"
+                android:hint="First Name"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textColorHint="@color/t_white" />
+
+            <EditText
+                android:id="@+id/regLastNameInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="@color/white"
+                android:hint="Last Name"
+                android:inputType="textPersonName"
+                android:textColor="@color/white"
+                android:textColorHint="@color/t_white" />
 
             <EditText
                 android:id="@+id/regDisplayNameInput"
@@ -148,6 +170,14 @@
                 android:text="Already have an account? Log in here"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Name" />
 
 
         </LinearLayout>
