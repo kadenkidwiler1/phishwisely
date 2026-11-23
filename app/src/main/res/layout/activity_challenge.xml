@@ -7,21 +7,47 @@
     android:layout_height="match_parent"
     android:background="@color/navy_dark"
     android:orientation="vertical"
+    android:padding="20dp"
     tools:context=".ChallengeActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/challengeBackButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical" />
+        android:backgroundTint="@color/card_navy"
+        android:text="‹ Dashboard"
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/challengeTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Challenge Screen"
-        android:textSize="40sp"
+        android:layout_marginTop="10dp"
+        android:text="Email Phishing"
         android:textColor="@color/white"
+        android:textSize="34sp"
         android:textStyle="bold" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="16dp"
+        android:text="Choose a challenge. Each attempt saves your score and accuracy."
+        android:textColor="@color/grey"
+        android:textSize="14sp" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/challengeListContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="24dp" />
+    </ScrollView>
 </LinearLayout>

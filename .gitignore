@@ -1,15 +1,30 @@
+# Android Studio configuration
+.idea/
 *.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+
+# Gradle caches and build output
+.gradle/
+**/build/
+
+# Local Android SDK configuration
 local.properties
+
+# Android generated files
+/captures/
+.externalNativeBuild/
+.cxx/
+
+# SQLite database files
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# Android signing credentials
+*.jks
+*.keystore
+
+# Operating system files
+.DS_Store
+Thumbs.db
