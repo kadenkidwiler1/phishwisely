@@ -1,20 +1,6 @@
+ # PhishWisely
 
-Upon initial build, the database will be seeded with the following organization codes and accounts:
-
-- Organization Codes:
-    - CKI
-    - COSC412
-
-- Demo accounts:
-    - demo@phishwisely.com - Demo123!
-    - student@cosc412.towson.edu - Tigers2026!
-
-
-    # PhishWisely
-
-**PhishWisely** is an Android-based mobile application designed to deliver phishing awareness training on-the-go modeled after cybersecurity Capture-The-Flag (CTF) events.
-
-This proof-of-concept prototype provides users with email phishing scenarios, immediate feedback, performance tracking, and a leaderboard to compare results. Currently, all data is stored locally on your device; there is no network connectivity required.
+**PhishWisely** is an Android-based mobile application designed to deliver phishing awareness training on-the-go modeled after cybersecurity Capture-The-Flag (CTF) events. This proof-of-concept prototype provides users with email phishing scenarios, immediate feedback, performance tracking, and a leaderboard to compare results. Currently, all data is stored locally on your device; there is no network connectivity required.
 
 ## Features
 
@@ -86,6 +72,7 @@ Allow Android Studio to synchronize Gradle and verify that the Android SDK is co
 
 **4. Build the application**
 
+Wait for Android Studio to build the application, or execute:
 ```powershell
 .\gradlew.bat assembleDebug
 ```

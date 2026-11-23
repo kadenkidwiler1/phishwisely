@@ -78,6 +78,10 @@ public class ChallengePlayActivity extends AuthenticatedActivity {
                 challenge = loaded;
                 questions = loadedQuestions;
                 ((TextView) findViewById(R.id.playTitle)).setText(loaded.title);
+                TextView descriptionView = findViewById(R.id.playDescription);
+
+                descriptionView.setText(loaded.description == null || loaded.description.trim().isEmpty() ? "EXAMINE THIS EMAIL" : loaded.description); // display default challenge description if no description provided
+
                 ((TextView) findViewById(R.id.emailFrom)).setText("From: " + loaded.sender + " <" + loaded.senderEmail + ">");
                 ((TextView) findViewById(R.id.emailSubject)).setText("Subject: " + loaded.subject);
                 ((TextView) findViewById(R.id.emailBody)).setText(loaded.body);
