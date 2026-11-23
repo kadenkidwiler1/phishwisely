@@ -104,7 +104,8 @@ final class SeedData {
                 101,
                 "EMAIL",
                 "Easy",
-                "TEST",
+                "Password Reset",
+                "This is the challenge description",
                 "Help Desk",
                 "TEST@microsoft.com",
                 "testsubject",
@@ -140,6 +141,7 @@ final class SeedData {
                 "EMAIL",
                 "Easy",
                 "TEST",
+                "This is another challenge description. It's a bit longer to test formatting and padding. Also you work at Microsoft and received an email from your IT department.",
                 "test2",
                 "TEST2@microsoft.com",
                 "testsubject2",
@@ -160,11 +162,11 @@ final class SeedData {
     }
 
     private static void addChallenge(SupportSQLiteDatabase db, int id, String category, String difficulty,
-                                     String title, String sender, String senderEmail, String subject,
+                                     String title, String description, String sender, String senderEmail, String subject,
                                      String body, int points) {
-        db.execSQL("INSERT INTO challenges (id,category,difficulty,title,sender,senderEmail,subject,body,pointsPerQuestion) " +
-                        "VALUES (?,?,?,?,?,?,?,?,?)",
-                new Object[]{id, category, difficulty, title, sender, senderEmail, subject, body, points});
+        db.execSQL("INSERT INTO challenges (id,category,difficulty,title,description,sender,senderEmail,subject,body,pointsPerQuestion) " +
+                        "VALUES (?,?,?,?,?,?,?,?,?,?)",
+                new Object[]{id, category, difficulty, title, description, sender, senderEmail, subject, body, points});
     }
 
     private static void addQuestion(SupportSQLiteDatabase db, int id, int challengeId, String type,
