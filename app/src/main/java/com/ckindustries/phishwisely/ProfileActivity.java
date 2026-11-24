@@ -80,8 +80,8 @@ public class ProfileActivity extends AuthenticatedActivity {
     private void confirmDelete() {
         EditText password = new EditText(this);
         password.setHint("Current password");
-        password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         password.setSingleLine(true);
+        password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         int pad = (int) (20 * getResources().getDisplayMetrics().density);
         android.widget.FrameLayout container = new android.widget.FrameLayout(this);
         container.setPadding(pad, 0, pad, 0);
