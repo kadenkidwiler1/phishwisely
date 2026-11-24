@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0B1F3A">
+  <meta name="description" content="PhishWisely: Phishing Awareness Training On-The-Go.">
+  <title>PhishWisely | Phishing Awareness Training On-The-Go</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#main" aria-label="PhishWisely home">PhishWisely</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="nav-github" href="https://github.com/kadenkidwiler1/phishwisely" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">Phishing Awareness Training <span>On-The-Go.</span></h1>
+        <p class="hero-lead">Learn to recognize phishing attempts before they catch you off guard. Practice with realistic email scenarios, get immediate feedback, and sharpen your security instincts on-the-go.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://github.com/kadenkidwiler1/phishwisely" target="_blank" rel="noopener noreferrer">Get the free prototype <span aria-hidden="true">↗</span></a>
+        </div>
+        <p class="hero-note">Free to download via <a href="https://github.com/kadenkidwiler1/phishwisely" target="_blank">github.com/kadenkidwiler1/phishwisely</a></p>
+        <div id="features" class="hero-highlights" aria-label="Features at a glance">
+          <div><strong>06</strong><span>Email phishing challenges</span></div>
+          <div><strong>03</strong><span>Difficulty levels</span></div>
+          <div><strong>100%</strong><span>Free prototype</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual" id="preview" aria-label="PhishWisely app preview">
+        <div class="hero-halo" aria-hidden="true"></div>
+        <div class="hero-phone phone-frame">
+          <img id="preview-image" src="assets/dashboard.png" width="921" height="2048" alt="PhishWisely dashboard with points, accuracy, and leaderboard" fetchpriority="high">
+        </div>
+        <div class="floating-tag tag-top" aria-hidden="true"><span class="tag-sparkle">✦</span> Learn by doing</div>
+        <div class="floating-tag tag-bottom" aria-hidden="true"><span class="tag-sparkle">✓</span> Track your progress</div>
+        <div class="preview-switcher" role="group" aria-label="Choose a screenshot">
+          <button class="preview-choice" type="button" data-screen="dashboard" aria-pressed="true">Dashboard</button>
+          <button class="preview-choice" type="button" data-screen="challenge" aria-pressed="false">Challenge</button>
+          <button class="preview-choice" type="button" data-screen="leaderboard" aria-pressed="false">Leaderboard</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const screenshots = {
+      dashboard: { src: 'assets/dashboard.png', alt: 'PhishWisely dashboard with points, accuracy, and leaderboard' },
+      challenge: { src: 'assets/challenge.png', alt: 'PhishWisely email-phishing awareness question with immediate feedback' },
+      leaderboard: { src: 'assets/leaderboard.png', alt: 'PhishWisely leaderboard ranking learners by their scores' }
+    };
+    const previewImage = document.getElementById('preview-image');
+    document.querySelectorAll('.preview-choice').forEach(button => {
+      button.addEventListener('click', () => {
+        const screen = screenshots[button.dataset.screen];
+        if (!screen) return;
+        previewImage.src = screen.src;
+        previewImage.alt = screen.alt;
+        document.querySelectorAll('.preview-choice').forEach(choice => {
+          choice.setAttribute('aria-pressed', String(choice === button));
+        });
+      });
+    });
+  </script>
+</body>
+</html>
