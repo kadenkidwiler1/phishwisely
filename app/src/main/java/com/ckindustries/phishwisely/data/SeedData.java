@@ -99,67 +99,186 @@ final class SeedData {
         );
 
 
+        // ==========
+        // Easy
+        // ==========
+
         addChallenge(
                 db,
                 101,
                 "EMAIL",
                 "Easy",
-                "Password Reset",
-                "This is the challenge description",
-                "Help Desk",
-                "TEST@microsoft.com",
-                "testsubject",
-                "This is a fake email.",
+                "Suspicious Password Reset",
+                "This is the challenge description", // description (placeholder)
+                "IT Help Desk",
+                "alerts@company-verify.example",
+                "Reset your password now",
+                "Your account expires in 30 minutes. Visit https://signin.company-verify.example/reset and enter your password to avoid suspension.",
                 10);
         addQuestion(
                 db,
                 1,
                 101,
                 "FLAG",
-                "Guess the correct answer",
-                "b",
-                "c",
-                "a",
-                "d",
+                "Flag the clearest suspicious part of this email.",
+                "The sender domain company-verify.example",
+                "The subject mentions a password",
+                "The email uses a greeting",
+                "The message has a deadline",
                 0,
-                "Because.");
+                "The sender domain is not the organization’s verified domain. Always check it independently.");
         addQuestion(
                 db,
                 2,
                 101,
-                "FLAG",
-                "Guess what number I'm thinking of",
-                "10",
-                "42",
-                "7",
-                "18",
-                1,
-                "It's the answer to the meaning of life.");
+                "MULTIPLE_CHOICE",
+                "What should you do first?",
+                "Open the link quickly",
+                "Reply with your password",
+                "Use your known company sign-in portal",
+                "Forward to all colleagues",
+                2,
+                "Go to a trusted portal directly rather than following an unsolicited sign-in link.");
+
+
+
+
+
+        // ==========
+        // Medium
+        // ==========
+
         addChallenge(
                 db,
-                102,
+                201,
                 "EMAIL",
-                "Easy",
-                "TEST",
-                "This is another challenge description. It's a bit longer to test formatting and padding. Also you work at Microsoft and received an email from your IT department.",
-                "test2",
-                "TEST2@microsoft.com",
-                "testsubject2",
-                "This is a super real email. Please give me a giftcard",
-                10);
+                "Medium",
+                "MFA Approval Fatigue",
+                "This is the challenge description", // description (placeholder)
+                "Access Security",
+                "mfa@security-notice.example",
+                "Approve your sign-in",
+                "We detected a pending sign-in. Approve the MFA request that appears on your device to keep your session active.",
+                20);
         addQuestion(
                 db,
                 3,
-                102,
+                201,
                 "MULTIPLE_CHOICE",
-                "Choose the correct answer.",
-                "Send them a giftcard",
-                "Ask for their venmo instead",
-                "Report this email to your IT team and do not send them anything",
-                "Ask them how many giftcards they need since they didn't specify it",
-                2,
-                "Report this email and do not send them anything");
+                "You did not attempt to sign in. What should you do?",
+                "Deny and report the request",
+                "Approve to dismiss it",
+                "Share the one-time code by email",
+                "Ignore repeated requests forever",
+                0,
+                "Unexpected MFA prompts can signal a stolen password or attacker fatigue attempt.");
+        addQuestion(
+                db,
+                4,
+                201,
+                "FLAG",
+                "Which phrase asks you to perform the unsafe action?",
+                "Approve the MFA request",
+                "We detected a pending sign-in",
+                "Security notice",
+                "Keep your session active",
+                0,
+                "Never approve authentication requests you did not initiate.");
+        addQuestion(
+                db,
+                5,
+                201,
+                "MULTIPLE_CHOICE",
+                "What else is appropriate after repeated unexpected MFA prompts?",
+                "Report to security and reset credentials via a trusted route",
+                "Turn off MFA permanently",
+                "Give your password to the sender",
+                "Reply to the alert with your OTP",
+                0,
+                "Report the activity and use official account-recovery channels.");
+
+
+        // ==========
+        // Hard
+        // ==========
+
+        addChallenge(
+                db,
+                301,
+                "EMAIL",
+                "Hard",
+                "QR Code",
+                "This is the challenge description", // description (placeholder)
+                "Bill Gates",
+                "billgates@microsoft.com",
+                "Confidential board packet",
+                "Use the QR code in the attached PDF to sign in and view the confidential board packet. Do not share this request with the IT team until the board meeting ends.",
+                30);
+        addQuestion(
+                db,
+                6,
+                301,
+                "MULTIPLE_CHOICE",
+                "Why is the QR code concerning?",
+                "It can hide a destination that is difficult to inspect",
+                "QR codes cannot contain links",
+                "A PDF cannot be malicious",
+                "Executives always use QR codes",
+                0,
+                "A QR image can conceal a credential-harvesting destination.");
+        addQuestion(
+                db,
+                7,
+                301,
+                "FLAG",
+                "Which line should be reported immediately?",
+                "Do not share this request with the IT team",
+                "Confidential board packet",
+                "Executive Office",
+                "View a PDF",
+                0,
+                "Secrecy instructions that bypass established verification are a hallmark of social engineering.");
+        addQuestion(
+                db,
+                8,
+                301,
+                "MULTIPLE_CHOICE",
+                "What is an appropriate verification channel?",
+                "An independently known executive assistant or IT contact",
+                "Reply to the suspicious email",
+                "Scan the QR code first",
+                "Use the PDF contact number",
+                0,
+                "Use a trusted contact path that does not rely on information inside the suspicious message.");
+        addQuestion(
+                db,
+                9,
+                301,
+                "MULTIPLE_CHOICE",
+                "Why might attackers claim the request is confidential?",
+                "To discourage scrutiny and reporting",
+                "To prove legal approval",
+                "To show the message is encrypted",
+                "To reduce the file size",
+                0,
+                "Authority and secrecy can pressure targets into skipping controls.");
+        addQuestion(
+                db,
+                10,
+                301,
+                "MULTIPLE_CHOICE",
+                "How should the suspicious message be handled?",
+                "Report with the original email and avoid scanning the code",
+                "Forward it broadly",
+                "Approve the login",
+                "Delete all records immediately",
+                0,
+                "Preserve evidence and report using the organization’s established process.");
+
+
     }
+
+
 
     private static void addChallenge(SupportSQLiteDatabase db, int id, String category, String difficulty,
                                      String title, String description, String sender, String senderEmail, String subject,
